@@ -1,0 +1,22 @@
+<span>ngOnchanges</span> &nbsp;
+<span>ngOnInit</span> &nbsp;
+<span>ngDoCheck</span> &nbsp;
+<span>ngAfterContentInit</span> &nbsp;
+<span>ngAfterContentChecked</span> &nbsp;
+<span>ngAfterViewInit</span> &nbsp;
+<span>ngAfterContentChecked</span> &nbsp;
+<span>ngOnDestory</span> &nbsp;
+
+<br />
+<br />
+<br />
+<br />
+<div class="center">
+    <div class="col-md-4">
+        <input class="form-control" type="text" placeholder="Enter Value" [(ngModel)]="inputValue">
+    </div>
+    
+</div>
+<div class="center mt-5">
+    <app-child-comp [inputValue]="inputValue"></app-child-comp>
+</div>
