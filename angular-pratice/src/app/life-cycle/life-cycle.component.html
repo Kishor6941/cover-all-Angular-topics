@@ -18,5 +18,9 @@
     
 </div>
 <div class="center mt-5">
-    <app-child-comp [inputValue]="inputValue"></app-child-comp>
+    <app-child-comp #appComp [inputValue]="inputValue" [userList]="userList" (someEvent)="comingFromChild($event)">
+        <h1 #child>This content coming from Parent</h1>
+    </app-child-comp>
 </div>
+
+<button (click)="check()">Check</button>

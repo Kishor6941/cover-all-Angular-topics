@@ -7,6 +7,8 @@ import { LifeCycleComponent } from './life-cycle/life-cycle.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ChildCompComponent } from './life-cycle/child-comp/child-comp.component';
 import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from  '@angular/common/http';
+import { AuthTokenInterceptor } from './services/auth-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,16 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthTokenInterceptor,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
