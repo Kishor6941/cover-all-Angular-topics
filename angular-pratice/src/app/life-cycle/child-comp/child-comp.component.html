@@ -1,1 +1,15 @@
 <p *ngIf="inputValue?.length">{{inputValue | json}}</p>
+
+<!-- <div class="col-md-4" *ngFor="let user of userData">
+    <span>{{user?.title}}</span>
+</div> -->
+
+<button (click)="sendBack()">send back to parent</button>
+
+<div>
+    <ng-content></ng-content>
+</div>
+
+<div>
+    <p #view>This is view</p>
+</div>
