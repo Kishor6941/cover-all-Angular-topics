@@ -1,20 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="#">Angular Topics</a>
+     
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" routerLink="/lifeCycle">Angular LifeCycle</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" routerLink="/users">Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" [routerLink]="['/about',{
+            outlets :{
+              'location':['location'],
+              'feed' : ['feed']
+            }
+          }]">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tdf">TDF</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/reactive">Reactive Form</a>
         </li>
       </ul>
-      <span class="navbar-text">
-        Navbar text with an inline element
-      </span>
     </div>
   </nav>
 

@@ -1,0 +1,26 @@
+<app-loader [showLoader]="showLoader"></app-loader>
+<div class="table-responsive mt-4" *ngIf="!showLoader">
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let user of userList">
+            <tr>
+              <th scope="row">{{user?.id}}</th>
+              <td>{{user?.name}}</td>
+              <td>{{user?.username}}</td>
+              <td>{{user?.email}}</td>
+              <td><a [routerLink]="['/users',user?.id]">View</a></td>
+            </tr>
+        </ng-container>
+        
+    </tbody>
+  </table>
+  </div>
