@@ -39,7 +39,8 @@ import { FeedComponent } from './feed/feed.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [
     {
