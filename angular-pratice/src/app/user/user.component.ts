@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -9,23 +10,25 @@ import { UserService } from '../shared/user.service';
 export class UserComponent implements OnInit {
 userList :any;
 showLoader : boolean = false;
-  constructor(private userService : UserService) {
+  constructor(private userService : UserService, private route : ActivatedRoute) {
 
   }
 
 
   ngOnInit(): void {
-   this.getUsers();
+  //  this.getUsers();
+  console.log(this.route.snapshot)
+  this.userList = this.route.snapshot.data['data'];
     
   }
-  getUsers() {
-    this.showLoader = true;
-    this.userService.firstTenUsers().subscribe((res)=> {
-      this.userList = res;
-      this.showLoader = false;
-    },(err => {
-      this.showLoader = false;
-      console.log(err)
-    }))
-  }
+  // getUsers() {
+  //   this.showLoader = true;
+  //   this.userService.firstTenUsers().subscribe((res)=> {
+  //     this.userList = res;
+  //     this.showLoader = false;
+  //   },(err => {
+  //     this.showLoader = false;
+  //     console.log(err)
+  //   }))
+  // }
 }
