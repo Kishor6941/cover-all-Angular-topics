@@ -10,6 +10,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ViewUserComponent } from './user/view-user/view-user.component';
 import { LocationComponent } from './location/location.component';
 import { FeedComponent } from './feed/feed.component';
+import { AuthGuard } from './services/guard/auth.guard';
+import { ProductComponent } from './product/product/product.component';
+import { ChildAuthGuard } from './services/guard/child-auth.guard';
+import { AddUserComponent } from './add-user/add-user.component';
+import { DeactivateAuthGuard } from './services/guard/deactivate-auth.guard';
+import { ResolveGuard } from './services/guard/resolve.guard';
+import { CanloadGuard } from './services/guard/canload.guard';
 
 const routes: Routes = [
   {
@@ -23,6 +30,9 @@ const routes: Routes = [
        {
         path : 'users',
         component : UserComponent,
+        resolve : {
+          data : ResolveGuard
+        }
        },
        {
         path : 'users/:id',
@@ -31,6 +41,7 @@ const routes: Routes = [
        {
         path : 'about',
         component : AboutComponent,
+        canActivateChild : [ChildAuthGuard],
         children : [
           {
             path : 'location',
@@ -56,7 +67,19 @@ const routes: Routes = [
   },
   {
     path : 'product',
-    loadChildren: () => import("./product/product.module").then(module => module.ProductModule)
+    loadChildren: () => import("./product/product.module").then(module => module.ProductModule),
+    canLoad: [CanloadGuard]
+  },
+  // {
+  //   path : 'product',
+  //   component : ProductComponent,
+  //   canActivate : [AuthGuard],
+  // },
+  {
+    path : 'add-user',
+    component : AddUserComponent,
+    canActivate : [AuthGuard],
+    // canDeactivate : [DeactivateAuthGuard]
   },
   {
     path:"**",

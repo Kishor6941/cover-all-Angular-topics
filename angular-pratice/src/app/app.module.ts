@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LifeCycleComponent } from './life-cycle/life-cycle.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ChildCompComponent } from './life-cycle/child-comp/child-comp.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from  '@angular/common/http';
 import { AuthTokenInterceptor } from './services/auth-token.interceptor';
 import { UserComponent } from './user/user.component';
@@ -18,6 +18,12 @@ import { ViewUserComponent } from './user/view-user/view-user.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import { LocationComponent } from './location/location.component';
 import { FeedComponent } from './feed/feed.component';
+import { AuthGuard } from './services/guard/auth.guard';
+import { ChildAuthGuard } from './services/guard/child-auth.guard';
+import { AddUserComponent } from './add-user/add-user.component';
+import { DeactivateAuthGuard } from './services/guard/deactivate-auth.guard';
+import { ResolveGuard } from './services/guard/resolve.guard';
+import { CanloadGuard } from './services/guard/canload.guard';
 
 @NgModule({
   declarations: [
@@ -33,13 +39,15 @@ import { FeedComponent } from './feed/feed.component';
     ViewUserComponent,
     LoaderComponent,
     LocationComponent,
-    FeedComponent
+    FeedComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
     
   ],
   providers: [
@@ -47,7 +55,12 @@ import { FeedComponent } from './feed/feed.component';
       provide : HTTP_INTERCEPTORS,
       useClass : AuthTokenInterceptor,
       multi : true
-    }
+    },
+    AuthGuard,
+    ChildAuthGuard,
+    DeactivateAuthGuard,
+    ResolveGuard,
+    CanloadGuard
   ],
   bootstrap: [AppComponent]
 })
