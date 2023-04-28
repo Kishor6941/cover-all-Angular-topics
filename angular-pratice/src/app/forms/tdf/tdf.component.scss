@@ -1,0 +1,14 @@
+.tdf{
+    @extend .centerDiv;
+    .tdf-main{
+        background: #eee7e7;
+        padding: 20px;
+        border-radius: 30px;
+    }
+}
+
+.centerDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
