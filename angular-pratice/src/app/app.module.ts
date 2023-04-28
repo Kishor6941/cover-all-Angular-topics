@@ -8,7 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ChildCompComponent } from './life-cycle/child-comp/child-comp.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from  '@angular/common/http';
-import { AuthTokenInterceptor } from './services/auth-token.interceptor';
+import { AuthTokenInterceptor } from './services/interceptor/auth-token.interceptor';
 import { UserComponent } from './user/user.component';
 import { AboutComponent } from './about/about.component';
 import { TdfComponent } from './forms/tdf/tdf.component';
@@ -24,6 +24,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { DeactivateAuthGuard } from './services/guard/deactivate-auth.guard';
 import { ResolveGuard } from './services/guard/resolve.guard';
 import { CanloadGuard } from './services/guard/canload.guard';
+import { LogginInterceptor } from './services/interceptor/loggin.interceptor';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,11 @@ import { CanloadGuard } from './services/guard/canload.guard';
     {
       provide : HTTP_INTERCEPTORS,
       useClass : AuthTokenInterceptor,
+      multi : true
+    },
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : LogginInterceptor,
       multi : true
     },
     AuthGuard,

@@ -13,7 +13,12 @@ export class AuthTokenInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log(request)
-    return next.handle(request);
+    let API_Key = "Kishor123";
+    let req = request.clone({
+      setHeaders : {
+        API_Key
+      }
+    })
+    return next.handle(req);
   }
 }
