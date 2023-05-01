@@ -5,7 +5,7 @@
         <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
             <div class="form-group mt-3">
               <label class="pb-2">First Name</label>
-              <input type="text" class="form-control" placeholder="Enter First Name" name="firstName" ngModel required #fname="ngModel">
+              <input type="text" class="form-control form-control-lg" placeholder="Enter First Name" name="firstName" ngModel required #fname="ngModel">
               <div *ngIf="fname?.invalid && fname?.touched">
                 <small class="error-message">First Name is required</small>
             </div>
@@ -13,7 +13,7 @@
 
             <div class="form-group mt-3">
                 <label class="pb-2">Last Name</label>
-                <input type="text" class="form-control" placeholder="Enter Last Name" name="lastName" ngModel required #lname="ngModel">
+                <input type="text" class="form-control form-control-lg" placeholder="Enter Last Name" name="lastName" ngModel required #lname="ngModel">
 
                 <div *ngIf="lname?.invalid && lname?.touched">
                     <small class="error-message">Last Name is required</small>
@@ -22,7 +22,7 @@
 
               <div class="form-group mt-3">
                 <label class="pb-2">Email</label>
-                <input type="email" class="form-control" placeholder="Enter Email" name="email" ngModel required email #email="ngModel">
+                <input type="email" class="form-control form-control-lg" placeholder="Enter Email" name="email" ngModel required email #email="ngModel">
                 <div *ngIf="email?.invalid && email?.touched">
                     <small class="error-message">Enter valid Email</small>
                 </div>
@@ -40,7 +40,7 @@
               <div class="px-5" ngModelGroup="address" #addressData="ngModelGroup">
                 <div class="form-group mt-3">
                     <label class="pb-2">Country</label>
-                    <select class="form-select form-select-sm mb-3"  name="country" ngModel required #country="ngModel">
+                    <select class="form-select form-select-lg mb-3"  name="country" ngModel required #country="ngModel">
                         <option value="" disabled hidden>Select Country</option>
                       <option *ngFor="let country of countryList" value="{{country?.id}}">{{country?.value}}</option>
                     </select>
@@ -50,7 +50,7 @@
                   </div>
                 <div class="form-group">
                     <label class="pb-2">City</label>
-                    <input type="text" name="city" class="form-control" ngModel required #city="ngModel">
+                    <input type="text" name="city" class="form-control form-control-lg" ngModel required #city="ngModel">
                     <div *ngIf="city?.invalid && city?.touched">
                       <small class="error-message">City is required</small>
                   </div>
@@ -58,7 +58,7 @@
 
                   <div class="form-group">
                     <label class="pb-2">Street</label>
-                    <input type="text" name="street" class="form-control" ngModel required #street="ngModel">
+                    <input type="text" name="street" class="form-control form-control-lg" ngModel required #street="ngModel">
                     <div *ngIf="street?.invalid && street?.touched">
                       <small class="error-message">Street is required</small>
                   </div>
@@ -66,7 +66,7 @@
 
                   <div class="form-group">
                     <label class="pb-2">PinCode</label>
-                    <input type="text" name="pincode" class="form-control" ngModel required #pincode="ngModel">
+                    <input type="text" name="pincode" class="form-control form-control-lg" ngModel required #pincode="ngModel">
                     <div *ngIf="pincode?.invalid && pincode?.touched">
                       <small class="error-message">PinCode is required</small>
                   </div>
