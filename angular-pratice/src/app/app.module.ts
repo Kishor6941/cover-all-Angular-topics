@@ -25,6 +25,7 @@ import { DeactivateAuthGuard } from './services/guard/deactivate-auth.guard';
 import { ResolveGuard } from './services/guard/resolve.guard';
 import { CanloadGuard } from './services/guard/canload.guard';
 import { LogginInterceptor } from './services/interceptor/loggin.interceptor';
+import { BackgroundColorDirective } from './directives/background-color.directive';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LogginInterceptor } from './services/interceptor/loggin.interceptor';
     LoaderComponent,
     LocationComponent,
     FeedComponent,
-    AddUserComponent
+    AddUserComponent,
+    BackgroundColorDirective
   ],
   imports: [
     BrowserModule,
