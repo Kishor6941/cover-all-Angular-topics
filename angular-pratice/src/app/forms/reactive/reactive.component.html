@@ -108,7 +108,7 @@
                   </div>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group mt-2">
                     <label class="pb-2">Street</label>
                     <input type="text" class="form-control form-control-lg" formControlName="street">
                     <div *ngIf="!registrationFrom.get('address.street')?.valid && registrationFrom.get('address.street')?.touched">
@@ -117,13 +117,22 @@
                     
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group mt-2">
                     <label class="pb-2">PinCode</label>
                     <input type="text" class="form-control form-control-lg" formControlName="pinCode">
                     <div *ngIf="!registrationFrom.get('address.pinCode')?.valid && registrationFrom.get('address.pinCode')?.touched">
                       <small class="error-message">Pin Code is required</small>
                   </div>
                     
+                  </div>
+
+                  <div class="form-group mt-2">
+                    <label class="pb-2">Skills</label>
+                    <ng-container>
+                      <input type="text" class="form-control form-control-lg" placeholder="Add Skills">
+                    </ng-container>
+                    
+                      <button class="btn btn-light btn-sm btn-add mt-3"> <i>+</i> Add Skills</button>
                   </div>
               </div>
 

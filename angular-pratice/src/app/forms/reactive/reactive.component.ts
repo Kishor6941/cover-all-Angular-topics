@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive',
@@ -19,7 +19,7 @@ export class ReactiveComponent implements OnInit
 constructor(private fb : FormBuilder) {}
 
 registrationFrom = this.fb.group({
-  firstName : ['',Validators.required],
+  firstName :['',Validators.compose([Validators.required,this.noSpaceAllow.bind(this)])],
   lastName : ['',Validators.required],
   DOB : ['',Validators.required],
   gender : ['male',Validators.required],
@@ -38,6 +38,14 @@ ngOnInit(): void {
   
 }
 
+noSpaceAllow(control : FormControl) {
+console.log(control)
+if(control.value != null && control.value.indexOf(' ') != -1){
+return {nospaceAllowed : true}
+} else {
+  return false
+}
+}
 get registerFormControl() {
   return this.registrationFrom.controls;
 }
@@ -50,7 +58,7 @@ register() {
 }
 
 setValuesToFrom() {
-   this.registrationFrom.setValue({
+   this.registrationFrom.patchValue({
     "firstName": "kishor",
     "lastName": "Fawade",
     "DOB": "25/0/1996",
