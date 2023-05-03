@@ -26,6 +26,8 @@ import { ResolveGuard } from './services/guard/resolve.guard';
 import { CanloadGuard } from './services/guard/canload.guard';
 import { LogginInterceptor } from './services/interceptor/loggin.interceptor';
 import { BackgroundColorDirective } from './directives/background-color.directive';
+import { HoverDirective } from './directives/hover.directive';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { BackgroundColorDirective } from './directives/background-color.directiv
     LocationComponent,
     FeedComponent,
     AddUserComponent,
-    BackgroundColorDirective
+    BackgroundColorDirective,
+    HoverDirective,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
