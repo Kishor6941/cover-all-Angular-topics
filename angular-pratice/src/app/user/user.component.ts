@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserComponent implements OnInit {
 userList :any;
+searchUser : string = '';
 showLoader : boolean = false;
   constructor(private userService : UserService, private route : ActivatedRoute) {
 
@@ -16,19 +17,18 @@ showLoader : boolean = false;
 
 
   ngOnInit(): void {
-  //  this.getUsers();
-  console.log(this.route.snapshot)
-  this.userList = this.route.snapshot.data['data'];
+   this.getUsers();
+  // this.userList = this.route.snapshot.data['data'];
     
   }
-  // getUsers() {
-  //   this.showLoader = true;
-  //   this.userService.firstTenUsers().subscribe((res)=> {
-  //     this.userList = res;
-  //     this.showLoader = false;
-  //   },(err => {
-  //     this.showLoader = false;
-  //     console.log(err)
-  //   }))
-  // }
+  getUsers() {
+    this.showLoader = true;
+    this.userService.firstTenUsers().subscribe((res)=> {
+      this.userList = res;
+      this.showLoader = false;
+    },(err => {
+      this.showLoader = false;
+      console.log(err)
+    }))
+  }
 }

@@ -28,6 +28,7 @@ import { LogginInterceptor } from './services/interceptor/loggin.interceptor';
 import { BackgroundColorDirective } from './directives/background-color.directive';
 import { HoverDirective } from './directives/hover.directive';
 import { HighlightDirective } from './directives/highlight.directive';
+import { FilterUserPipe } from './services/filter-user.pipe';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     AddUserComponent,
     BackgroundColorDirective,
     HoverDirective,
-    HighlightDirective
+    HighlightDirective,
+    FilterUserPipe
   ],
   imports: [
     BrowserModule,
